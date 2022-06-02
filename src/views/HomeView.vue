@@ -56,7 +56,8 @@ export default {
   data: function () {
     return {
       max: 50,
-      cart: []
+      cart: [],
+      checkedTypes: []
     }
   },
   props: ['products'],
