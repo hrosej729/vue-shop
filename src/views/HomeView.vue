@@ -2,12 +2,12 @@
   <section class="container">
     <div class="row">
       <div class="col-md-3">
-        <label for="item-type" class="h2">Filters Currently On: </label>
-        <br />
-        <label for="item-type" class="h2"> {{ checkedTypes }} </label>
+        <label for="item-type" class="h1">Filters </label>
 
-        <br />
+        <hr />
 
+        <label for="item-type" class="h3">Product Type:</label>
+        <br />
         <input
           type="checkbox"
           id="books"
@@ -15,9 +15,7 @@
           v-model="checkedTypes"
         />
         <label for="books"> Books</label>
-
         <br />
-
         <input
           type="checkbox"
           id="clothes"
@@ -25,9 +23,7 @@
           v-model="checkedTypes"
         />
         <label for="clothes"> Clothes</label>
-
         <br />
-
         <input
           type="checkbox"
           id="vitamins"
@@ -35,9 +31,7 @@
           v-model="checkedTypes"
         />
         <label for="vitamins"> Vitamins</label>
-
         <br />
-
         <input
           type="checkbox"
           id="drinks"
@@ -45,10 +39,13 @@
           v-model="checkedTypes"
         />
         <label for="drinks"> Sports Drinks</label>
+
+        <hr />
+
+        <range-selector :products="filteredProducts" v-model="max" />
       </div>
 
       <div class="col">
-        <range-selector :products="filteredProducts" v-model="max" />
         <product-list :products="filteredProducts" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <label for="max-price" class="form-label h2"
+  <label for="max-price" class="form-label h3"
     >Max Price (${{ modelValue }})</label
   >
   <div class="badge bg-success ml-3">results: {{ products.length }}</div>
