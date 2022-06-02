@@ -1,48 +1,57 @@
 <template>
   <section class="container">
-    <div>
-      <label for="item-type" class="h2"
-        >Filters Currently On: {{ checkedTypes }}</label
-      >
+    <div class="row">
+      <div class="col-md-3">
+        <label for="item-type" class="h2">Filters Currently On: </label>
+        <br />
+        <label for="item-type" class="h2"> {{ checkedTypes }} </label>
 
-      <br />
+        <br />
 
-      <input type="checkbox" id="books" value="Books" v-model="checkedTypes" />
-      <label for="books"> Books</label>
+        <input
+          type="checkbox"
+          id="books"
+          value="Books"
+          v-model="checkedTypes"
+        />
+        <label for="books"> Books</label>
 
-      <br />
+        <br />
 
-      <input
-        type="checkbox"
-        id="clothes"
-        value="Clothes"
-        v-model="checkedTypes"
-      />
-      <label for="clothes"> Clothes</label>
+        <input
+          type="checkbox"
+          id="clothes"
+          value="Clothes"
+          v-model="checkedTypes"
+        />
+        <label for="clothes"> Clothes</label>
 
-      <br />
+        <br />
 
-      <input
-        type="checkbox"
-        id="vitamins"
-        value="Vitamins"
-        v-model="checkedTypes"
-      />
-      <label for="vitamins"> Vitamins</label>
+        <input
+          type="checkbox"
+          id="vitamins"
+          value="Vitamins"
+          v-model="checkedTypes"
+        />
+        <label for="vitamins"> Vitamins</label>
 
-      <br />
+        <br />
 
-      <input
-        type="checkbox"
-        id="drinks"
-        value="Drinks"
-        v-model="checkedTypes"
-      />
-      <label for="drinks"> Sports Drinks</label>
+        <input
+          type="checkbox"
+          id="drinks"
+          value="Drinks"
+          v-model="checkedTypes"
+        />
+        <label for="drinks"> Sports Drinks</label>
+      </div>
+
+      <div class="col">
+        <range-selector :products="filteredProducts" v-model="max" />
+        <product-list :products="filteredProducts" />
+      </div>
     </div>
-
-    <range-selector :products="filteredProducts" v-model="max" />
-    <product-list :products="filteredProducts" />
   </section>
 </template>
 
