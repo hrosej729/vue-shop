@@ -2,7 +2,7 @@
   <section class="container">
     <div>
       <label for="item-type" class="h2"
-        >Filtered Items: {{ checkedTypes }}</label
+        >Filters Currently On: {{ checkedTypes }}</label
       >
 
       <br />
@@ -67,7 +67,47 @@ export default {
   },
   computed: {
     filteredProducts() {
-      return this.products.filter(item => item.price < Number(this.max))
+      let books = this.checkedTypes.includes('Books')
+      let clothes = this.checkedTypes.includes('Clothes')
+      let vitamins = this.checkedTypes.includes('Vitamins')
+      let drinks = this.checkedTypes.includes('Drinks')
+
+      let booksMin = 0
+      let booksMax = 0
+      let clothesMin = 126
+      let vitaMin = 0
+      let vitaMax = 0
+      let drinkMax = 0
+      if (books) {
+        booksMin = 24
+        booksMax = 25
+      }
+      if (clothes) {
+        clothesMin = 15
+      }
+      if (vitamins) {
+        vitaMin = 5
+        vitaMax = 15
+      }
+      if (drinks) {
+        drinkMax = 5
+      }
+      if (!books && !clothes && !vitamins && !drinks) {
+        return this.products.filter(item => item.price < Number(this.max))
+      }
+      return this.products.filter(
+        item =>
+          (item.price < Number(this.max) &&
+            item.price > booksMin &&
+            item.price < booksMax) ||
+          (item.price < Number(this.max) &&
+            item.price > clothesMin &&
+            !(item.price > 24 && item.price < 25)) ||
+          (item.price < Number(this.max) &&
+            item.price > vitaMin &&
+            item.price < vitaMax) ||
+          (item.price < Number(this.max) && item.price < drinkMax)
+      )
     }
   }
 }
