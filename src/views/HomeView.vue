@@ -2,7 +2,9 @@
   <section class="container">
     <div class="row">
       <div class="col-md-3">
-        <label for="item-type" class="h1">Filters </label>
+        <label for="item-type" class="h1">
+          <div class="badge bg-dark">Filters</div>
+        </label>
 
         <hr />
 

@@ -1,5 +1,9 @@
 <template>
   <transition-group name="products" appear>
+    <label for="item-type" class="h1">
+      <div class="badge bg-dark">Results: {{ products.length }}</div>
+    </label>
+    <hr />
     <div
       v-for="item in products"
       :key="item.id"
